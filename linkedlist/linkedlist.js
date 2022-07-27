@@ -49,16 +49,25 @@ class LinkedList {
     }
     
     else{
-      let curr= this.head;
-      while(curr.next !== null){
-        curr = curr.next;
-        if(curr.data == data){
-           return curr.next= curr.next.next
+      // let dummy = new Node(0)
+      // dummy.next = this.head;
+      let p1= this.head;
+      let p2= this.head.next
+      while(p1.next !== null){
+        if(p2.data == data){
+          console.log("found")
+          this.size--
+          return  p1.next= p2.next
+        }
+        else{
+          p1=p1.next;
+          p2= p2.next
         }
       }
-      return -1
+      console.log("not found exit code", 0)
+      
+      }
     }
-  }
   InsertAt(data, index){
     
     let node= new Node(data);
@@ -100,7 +109,7 @@ list.InsertAtHead(44)
 list.InsertAtTail(20)
 list.InsertAtTail(80)
 list.InsertAtTail(8)
-// list.DeleteElement(80)
+list.DeleteElement(20)
 // list.ReverseList()
 // list.InsertAt(100, 1)
 // list.InsertAt(0, 3)
